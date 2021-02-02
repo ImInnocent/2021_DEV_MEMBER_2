@@ -12,14 +12,9 @@ import WebSocketContext from "./contexts/WebSocketContext";
 
 function App() {
   const [roomName, setRoomName] = useState('');
-  const [active, setActive] = useState(false);
 
   const handleChange = e => {
     setRoomName(e.target.value);
-  }
-
-  const handleEnter = () => {
-    setActive(true);
   }
 
   return (
@@ -48,7 +43,7 @@ function App() {
               />
               <br />
               <Link to={`/${roomName}`}>
-                <Button onClick={handleEnter} variant="contained" color="primary">
+                <Button variant="contained" color="primary">
                   접속하기
                 </Button>
               </Link>
