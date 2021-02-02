@@ -1,6 +1,6 @@
 # Tart Dev Assignment 2
 Backend: Python (Django)   
-Frontend: Javascript (React)   
+Frontend: Javascript (React) + Material-UI   
 Database: sqlite
 
 # Trouble Shootings
@@ -19,4 +19,9 @@ https://stackoverflow.com/questions/62786988/redis-err-unknown-command-bzpopmin
 # References
 Django channels
 https://channels.readthedocs.io/en/latest/tutorial/part_3.html
+   
+React Router DOM
+https://reactrouter.com/web/guides/quick-start
 
+Material-UI   
+https://material-ui.com/
