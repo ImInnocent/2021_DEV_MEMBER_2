@@ -28,11 +28,14 @@ function App() {
         <header className="App-header">
           <Switch>
             {/* chatting room */}
-            <Route path={`/:roomName`}>
-              <WebSocketContext active={active} roomName={roomName}>
-                <Room roomName={roomName} />
-              </WebSocketContext>
-            </Route>
+            <Route
+              path={`/:roomName`}
+              render={({ match }) => (
+                <WebSocketContext roomName={match.params.roomName}>
+                  <Room roomName={match.params.roomName} />
+                </WebSocketContext>
+              )}
+            />
             {/* index */}
             <Route path="/">
               What chat room would you like to enter?<br />

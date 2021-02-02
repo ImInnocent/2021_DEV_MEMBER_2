@@ -2,10 +2,10 @@ import React, {useRef} from 'react';
 
 const WebSocketContext = React.createContext({});
 
-function WebSocketProvider({ active, roomName, children }) {
+function WebSocketProvider({ roomName, children }) {
   let ws = useRef(null);
 
-  if (!ws.current && active) {
+  if (!ws.current && roomName) {
     const webSocketUrl = `ws://127.0.0.1:8000/ws/chat/${roomName}/`;
     ws.current = new WebSocket(webSocketUrl);
 
