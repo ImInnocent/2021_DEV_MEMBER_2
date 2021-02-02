@@ -8,12 +8,18 @@ import {
   Link
 } from "react-router-dom";
 import Room from "./Room";
+import WebSocketContext from "./contexts/WebSocketContext";
 
 function App() {
   const [roomName, setRoomName] = useState('');
+  const [active, setActive] = useState(false);
 
   const handleChange = e => {
     setRoomName(e.target.value);
+  }
+
+  const handleEnter = () => {
+    setActive(true);
   }
 
   return (
@@ -21,9 +27,13 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Switch>
+            {/* chatting room */}
             <Route path={`/:roomName`}>
-              <Room roomName={roomName} />
+              <WebSocketContext active={active} roomName={roomName}>
+                <Room roomName={roomName} />
+              </WebSocketContext>
             </Route>
+            {/* index */}
             <Route path="/">
               What chat room would you like to enter?<br />
               <TextField
@@ -35,7 +45,7 @@ function App() {
               />
               <br />
               <Link to={`/${roomName}`}>
-                <Button variant="contained" color="primary">
+                <Button onClick={handleEnter} variant="contained" color="primary">
                   접속하기
                 </Button>
               </Link>
